@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello, World!</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="main">
+     
+      <h1 class="title">To-Do List</h1>
+      <input type="text" id="textBox1"
+      placeholder="Enter a task...">
+      <button onclick="addTask()">ADD</button><br>
+      <h3 id="head">Notes</h3>
+      <div id="taskContainer">
+        
+      </div>
+     </div>
+     <script>
+       var textBox1=document.getElementById("textBox1");
+       var taskContainer=document.getElementById("taskContainer");
+       function addTask()
+       {
+         var div=document.createElement('div');
+         div.innerHTML="<ul><li id='items'>"+textBox1.value+"<button id='btn1' onclick='deleted(event)'>❌</button></li></ul>";
+         taskContainer.append(div);
+         textBox1.value="";
+       }
+       function deleted(event)
+       {
+         event.target.parentElement.remove();
+       }
+     </script>
+  </body>
+</html>
